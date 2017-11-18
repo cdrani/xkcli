@@ -29,6 +29,6 @@ switch(process.argv[2]) {
   }
 
   default: {
-    console.log('For available commands/options, reference `xkcd -h`')
+    console.log('For available commands/options, reference `xk -h`')
   }
 }
