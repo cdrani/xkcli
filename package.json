@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "xkcd comic viewer on terminal",
   "bin": {
-    "xk": "xkcd.js"
+    "xk": "xkcd-cli.js"
   },
   "keywords": [
     "xkcd",

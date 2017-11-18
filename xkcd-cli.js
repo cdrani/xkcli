@@ -14,9 +14,9 @@ async function fetchComic(url) {
   const response = await fetch(url)
   const data = await response.json()
   const { alt, img, title } = data
-    console.log(chalk.blue(title))
+    console.log(chalk.bold.underline.blueBright(title))
     imgcat(img, { log: true })
-    console.log(chalk.green(alt))
+    console.log(chalk.greenBright(alt))
 }
 
 switch(process.argv[2]) {
