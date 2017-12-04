@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 const chalk = require('chalk')
 const imgcat = require('imgcat')
 const store = require('data-store')('xkcd')
+const rand = require('unique-random')
 
 program
   .version('0.1.0')
@@ -11,6 +12,7 @@ program
   .option('-p, --previous', 'previous comic from current')
   .option('-n, --next', 'next comic from current')
   .option('-s, --specific <value>', 'specific comic')
+  .option('-r, --random', 'random comic')
   .parse(process.argv)
 
 async function fetchComic(url) {
@@ -42,6 +44,12 @@ switch (process.argv[2]) {
 
   case '-s': {
     return fetchComic(`https://xkcd.com/${program.specific}/info.0.json`)
+  }
+
+  case '-r': {
+    return fetchComic(
+      `https://xkcd.com/${rand(1, store.get('current'))()}/info.0.json`
+    )
   }
 
   default: {
