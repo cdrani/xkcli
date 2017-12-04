@@ -3,6 +3,7 @@ const program = require('commander')
 const fetch = require('node-fetch')
 const chalk = require('chalk')
 const imgcat = require('imgcat')
+const store = require('data-store')('xkcd')
 
 program
   .version('0.1.0')
