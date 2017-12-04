@@ -15,7 +15,10 @@ Usage: xk [options]
 Options:
   -V, --version          ouput the version number
   -c, --current          most current comic
+  -p, --previous         previous comic from current
+  -n, --next             next comic from from current
   -s, --specific <value> specifc comic
+  -r, --random           random comic
   -h, --help             output usage information
 ```
 
