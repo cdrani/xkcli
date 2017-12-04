@@ -3,22 +3,27 @@
   "version": "0.1.0",
   "description": "xkcd comic viewer on terminal",
   "bin": {
-    "xk": "xkcd-cli.js"
+    "xk": "index.js"
   },
   "keywords": [
     "xkcd",
+    "terminal",
+    "terminal",
+    "comic",
     "cli",
     "node"
   ],
   "dependencies": {
-    "chalk": "^2.3.0",
-    "commander": "^2.11.0",
+    "chalk": "2.3.0",
+    "commander": "2.11.0",
     "data-store": "1.0.0",
-    "imgcat": "^2.3.0",
-    "node-fetch": "^1.7.3",
+    "imgcat": "2.3.0",
+    "node-fetch": "1.7.3",
     "unique-random": "1.0.0"
   },
   "repository": "git+https://github.com/cdrainxv/xkcd-cli.git",
-  "author": "cdrainxv <cdrainxv@users.noreply.github.com> (https://github.com/cdrainxv)",
+  "bugs": "https://github.com/cdrainxv/xkcd-cli/issues",
+  "homepage": "https://github.com/cdrainxv/xkcd-cli#readme",
+  "author": "cdrainxv (https://github.com/cdrainxv)",
   "license": "MIT"
 }
