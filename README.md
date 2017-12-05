@@ -1,19 +1,21 @@
-# xkcd-cli
+# xkcli
 
 ---
 
 ## Basis:
 
-This is a simple terminal based xkcd comic viewer based on my blog post: [Create A CLI App](https://cdrainxv.github.io/blog/cli/2017/11/18/creating-a-cli-app.html). The motivation was because of my love for the site, [xkcd](https://xkcd.com), and the various Node CLI packages I've been
-using recently. I wanted to create my own simple one and this is the outcome:
+Simple terminal based xkcd comic viewer. CLI will display the title, alt text,
+and image of a comic.
 
-##  Usage
+## Usage
+
+Installation: `npm install xkcli --global`
 
 ```bash
 Usage: xk [options]
 
 Options:
-  -V, --version          ouput the version number
+  -V, --version          output the version number
   -c, --current          most current comic
   -p, --previous         previous comic from current
   -n, --next             next comic from from current
@@ -22,3 +24,6 @@ Options:
   -h, --help             output usage information
 ```
 
+## References
+
+[xkcd.com](https://xkcd.com/) | [xkcd api](https://xkcd.com/json.html)
