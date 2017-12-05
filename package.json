@@ -1,5 +1,5 @@
 {
-  "name": "xkcd-cli",
+  "name": "xkcli",
   "version": "0.1.0",
   "description": "xkcd comic viewer on terminal",
   "bin": {
