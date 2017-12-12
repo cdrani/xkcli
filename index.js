@@ -25,8 +25,10 @@ async function fetchComic(url) {
     .set('next', num + 1)
 
   console.log(chalk.bold.underline.blueBright(title))
-  imgcat(img, { log: true })
-  console.log(chalk.greenBright(alt))
+  imgcat(img).then(image => {
+    console.log(image)
+    console.log(chalk.greenBright(alt))
+  })
 }
 
 switch (process.argv[2]) {
