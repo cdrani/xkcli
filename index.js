@@ -6,13 +6,20 @@ const imgcat = require('imgcat')
 const store = require('data-store')('xkcd')
 const rand = require('unique-random')
 
+const list = chalk_opts => chalk_opts.split(',')
+const setOptions = (opts = `bold.greenBright`, type, text) =>
+  store.get(type)
+    ? console.log(chalk`{${opts} ${text}}`)
+    : console.log(chalk.bold.greenBright(text))
+
 program
-  .version('0.1.0')
+  .version('0.2.0')
   .option('-c, --current', 'most current comic')
   .option('-p, --previous', 'previous comic from current')
   .option('-n, --next', 'next comic from current')
   .option('-s, --specific <value>', 'specific comic')
   .option('-r, --random', 'random comic')
+  .option('-o, --options <options>', 'chalk options', list)
   .parse(process.argv)
 
 async function fetchComic(url) {
@@ -24,10 +31,10 @@ async function fetchComic(url) {
     .set('previous', num - 1)
     .set('next', num + 1)
 
-  console.log(chalk.bold.underline.blueBright(title))
+  setOptions(store.get('title'), 'title', title)
   imgcat(img).then(image => {
     console.log(image)
-    console.log(chalk.greenBright(alt))
+    setOptions(store.get('alt'), 'alt', alt)
   })
 }
 
@@ -52,6 +59,10 @@ switch (process.argv[2]) {
     return fetchComic(
       `https://xkcd.com/${rand(1, store.get('current'))()}/info.0.json`
     )
+  }
+
+  case '-o': {
+    return store.set('title', program.options[0]).set('alt', program.options[1])
   }
 
   default: {
