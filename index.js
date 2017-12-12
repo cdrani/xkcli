@@ -13,7 +13,7 @@ const setOptions = (opts = `bold.greenBright`, type, text) =>
     : console.log(chalk.bold.greenBright(text))
 
 program
-  .version('0.2.0')
+  .version('0.2.1')
   .option('-c, --current', 'most current comic')
   .option('-p, --previous', 'previous comic from current')
   .option('-n, --next', 'next comic from current')

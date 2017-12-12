@@ -15,13 +15,14 @@ Installation: `npm install xkcli --global`
 Usage: xk [options]
 
 Options:
-  -V, --version          output the version number
-  -c, --current          most current comic
-  -p, --previous         previous comic from current
-  -n, --next             next comic from from current
-  -s, --specific <value> specifc comic
-  -r, --random           random comic
-  -h, --help             output usage information
+  -V, --version            output the version number
+  -c, --current            most current comic
+  -p, --previous           previous comic from current
+  -n, --next               next comic from from current
+  -s, --specific <value>   specifc comic
+  -r, --random             random comic
+  -o, --options <options>  chalk options
+  -h, --help               output usage information
 ```
 
 ## References
