@@ -1,6 +1,6 @@
 {
   "name": "xkcli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "xkcd comic viewer on terminal",
   "bin": {
     "xk": "index.js"
