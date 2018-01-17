@@ -26,10 +26,11 @@ async function fetchComic(url) {
   const response = await fetch(url)
   const data = await response.json()
   const { num, alt, img, title } = data
+  const isMostCurrent = store.get('current') === num
   store
     .set('current', num)
     .set('previous', num - 1)
-    .set('next', num + 1)
+    .set('next', isMostCurrent ? num : num + 1)
 
   setOptions(store.get('title'), 'title', title)
   imgcat(img).then(image => {
