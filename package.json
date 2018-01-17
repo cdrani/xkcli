@@ -5,14 +5,7 @@
   "bin": {
     "xk": "index.js"
   },
-  "keywords": [
-    "xkcd",
-    "terminal",
-    "terminal",
-    "comic",
-    "cli",
-    "node"
-  ],
+  "keywords": ["xkcd", "terminal", "terminal", "comic", "cli", "node"],
   "dependencies": {
     "chalk": "2.3.0",
     "commander": "2.11.0",
@@ -21,9 +14,9 @@
     "node-fetch": "1.7.3",
     "unique-random": "1.0.0"
   },
-  "repository": "git+https://github.com/cdrainxv/xkcd-cli.git",
-  "bugs": "https://github.com/cdrainxv/xkcd-cli/issues",
-  "homepage": "https://github.com/cdrainxv/xkcd-cli#readme",
+  "repository": "git+https://github.com/cdrainxv/xkcli.git",
+  "bugs": "https://github.com/cdrainxv/xkcli/issues",
+  "homepage": "https://github.com/cdrainxv/xkcli#readme",
   "author": "cdrainxv (https://github.com/cdrainxv)",
   "license": "MIT"
 }
