@@ -1,11 +1,18 @@
 {
   "name": "xkcli",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "xkcd comic viewer on terminal",
   "bin": {
     "xk": "index.js"
   },
-  "keywords": ["xkcd", "terminal", "terminal", "comic", "cli", "node"],
+  "keywords": [
+    "xkcd",
+    "terminal",
+    "terminal",
+    "comic",
+    "cli",
+    "node"
+  ],
   "dependencies": {
     "chalk": "2.3.0",
     "commander": "2.11.0",
