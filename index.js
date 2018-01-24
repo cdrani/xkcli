@@ -31,8 +31,13 @@ async function fetchComic(url) {
     .set('current', num)
     .set('previous', num - 1)
     .set('next', isMostCurrent ? num : num + 1)
+    .set('latest', isMostCurrent ? store.get('current') : store.get('latest'))
 
-  setOptions(store.get('title'), 'title', title)
+  setOptions(
+    store.get('title'),
+    'title',
+    `${title} [${num}/${store.get('latest')}]`
+  )
   imgcat(img).then(image => {
     console.log(image)
     setOptions(store.get('alt'), 'alt', alt)
