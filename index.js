@@ -13,13 +13,20 @@ const setOptions = (opts = `bold.greenBright`, type, text) =>
     : console.log(chalk.bold.greenBright(text))
 
 program
-  .version('0.2.1')
-  .option('-c, --current', 'most current comic')
-  .option('-p, --previous', 'previous comic from current')
-  .option('-n, --next', 'next comic from current')
-  .option('-s, --specific <value>', 'specific comic')
-  .option('-r, --random', 'random comic')
-  .option('-o, --options <options>', 'chalk options', list)
+  .version('0.3.1')
+  .option('-c, --current', 'latest comic')
+  .option('-p, --previous', 'previous comic based on the present comic')
+  .option('-n, --next', 'next comic based on the present comic')
+  .option(
+    '-s, --specific <value>',
+    'specific comic ranging from first to latest'
+  )
+  .option('-r, --random', 'random comic ranging from first to latest')
+  .option(
+    '-o, --options <options>',
+    'configure chalk options (ref. chalk package)',
+    list
+  )
   .parse(process.argv)
 
 async function fetchComic(url) {
