@@ -33,18 +33,15 @@ async function fetchComic(url) {
   const response = await fetch(url)
   const data = await response.json()
   const { num, alt, img, title } = data
-  const isMostCurrent = store.get('current') === num
+  const latest = store.get('latest')
+  const isMostCurrent = latest === num
   store
     .set('current', num)
-    .set('previous', num - 1)
-    .set('next', isMostCurrent ? num : num + 1)
-    .set('latest', isMostCurrent ? store.get('current') : store.get('latest'))
+    .set('previous', num <= 1 ? 1 : num - 1)
+    .set('next', isMostCurrent ? latest : num + 1)
+    .set('latest', isMostCurrent ? num : latest)
 
-  setOptions(
-    store.get('title'),
-    'title',
-    `${title} [${num}/${store.get('latest')}]`
-  )
+  setOptions(store.get('title'), 'title', `${title} [${num}/${latest}]`)
   imgcat(img).then(image => {
     console.log(image)
     setOptions(store.get('alt'), 'alt', alt)
@@ -65,12 +62,19 @@ switch (process.argv[2]) {
   }
 
   case '-s': {
-    return fetchComic(`https://xkcd.com/${program.specific}/info.0.json`)
+    const latest = store.get('latest')
+    const specificNum = program.specific
+    if (specificNum < 1 || specificNum > latest) {
+      return console.log(
+        `Only comics ranging from 1 to ${latest} can be retrieved.`
+      )
+    }
+    return fetchComic(`https://xkcd.com/${specificNum}/info.0.json`)
   }
 
   case '-r': {
     return fetchComic(
-      `https://xkcd.com/${rand(1, store.get('current'))()}/info.0.json`
+      `https://xkcd.com/${rand(1, store.get('latest'))()}/info.0.json`
     )
   }
 
