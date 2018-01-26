@@ -33,13 +33,15 @@ async function fetchComic(url) {
   const response = await fetch(url)
   const data = await response.json()
   const { num, alt, img, title } = data
-  const latest = store.get('latest')
-  const isMostCurrent = latest === num
+  store.set('current', num)
+
+  const latest = store.get('latest') || store.get('current')
+  const isLatest = num === latest
+
   store
-    .set('current', num)
     .set('previous', num <= 1 ? 1 : num - 1)
-    .set('next', isMostCurrent ? latest : num + 1)
-    .set('latest', isMostCurrent ? num : latest)
+    .set('next', isLatest ? num : num + 1)
+    .set('latest', isLatest ? num : latest)
 
   setOptions(store.get('title'), 'title', `${title} [${num}/${latest}]`)
   imgcat(img).then(image => {
