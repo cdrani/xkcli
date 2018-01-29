@@ -28,10 +28,10 @@ Options:
   -h, --help               output usage information
 ```
 
-## `xk -o`
+## `xk -o <options>`
 
-This option allows the manipulation of the title text and the alt text (at
-the bottom). These texts can be styled using [**chalk**](https://github.com/chalk/chalk).
+This option allows for the stylistic manipulation of the title text and the alt text (at
+the bottom). These texts can be stylized using the available [**chalk**](https://github.com/chalk/chalk) colors and modifiers.
 
 **example**:
 
