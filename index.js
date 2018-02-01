@@ -27,6 +27,7 @@ program
     'configure chalk options (ref. chalk package)',
     list
   )
+  .option('-d, --data', 'display filepath to data storage location')
   .parse(process.argv)
 
 async function fetchComic(url) {
@@ -86,6 +87,10 @@ switch (process.argv[2]) {
 
   case '-o': {
     return store.set('title', program.options[0]).set('alt', program.options[1])
+  }
+
+  case '-d': {
+    return console.log(store.path)
   }
 
   default: {
