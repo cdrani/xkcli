@@ -35,13 +35,17 @@ async function fetchComic(url) {
   const { num, alt, img, title } = data
   store.set('current', num)
 
-  const latest = store.get('latest') || store.get('current')
-  const isLatest = num === latest
+  let latest = store.get('latest') || store.get('current')
+
+  if (program.current) {
+    store.set('latest', num)
+  }
+
+  const isLatest = num === store.get('latest')
 
   store
     .set('previous', num <= 1 ? 1 : num - 1)
     .set('next', isLatest ? num : num + 1)
-    .set('latest', isLatest ? num : latest)
 
   setOptions(store.get('title'), 'title', `${title} [${num}/${latest}]`)
   imgcat(img).then(image => {
