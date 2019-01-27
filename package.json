@@ -5,7 +5,14 @@
   "bin": {
     "xk": "index.js"
   },
-  "keywords": ["xkcd", "terminal", "terminal", "comic", "cli", "node"],
+  "keywords": [
+    "xkcd",
+    "terminal",
+    "terminal",
+    "comic",
+    "cli",
+    "node"
+  ],
   "dependencies": {
     "chalk": "2.3.0",
     "commander": "2.11.0",
