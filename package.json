@@ -5,9 +5,11 @@
   "bin": {
     "xk": "index.js"
   },
+  "scripts": {
+    "prettier": "prettier --write '**/*.js'"
+  }, 
   "keywords": [
     "xkcd",
-    "terminal",
     "terminal",
     "comic",
     "cli",
@@ -20,6 +22,9 @@
     "imgcat": "2.3.0",
     "node-fetch": "1.7.3",
     "unique-random": "1.0.0"
+  },
+  "devDependencies": {
+    "prettier": "1.16.1"
   },
   "repository": "git+https://github.com/cdrainxv/xkcli.git",
   "bugs": "https://github.com/cdrainxv/xkcli/issues",
