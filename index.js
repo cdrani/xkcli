@@ -56,19 +56,16 @@ async function fetchComic(url) {
 }
 
 switch (process.argv[2]) {
-  case '-c': {
+  case '-c':
     return fetchComic(`https://xkcd.com/info.0.json`)
-  }
 
-  case '-p': {
+  case '-p':
     return fetchComic(`https://xkcd.com/${store.get('previous')}/info.0.json`)
-  }
 
-  case '-n': {
+  case '-n':
     return fetchComic(`https://xkcd.com/${store.get('next')}/info.0.json`)
-  }
 
-  case '-s': {
+  case '-s':
     const latest = store.get('latest')
     const specificNum = program.specific
     if (specificNum < 1 || specificNum > latest) {
@@ -77,23 +74,19 @@ switch (process.argv[2]) {
       )
     }
     return fetchComic(`https://xkcd.com/${specificNum}/info.0.json`)
-  }
 
-  case '-r': {
+  case '-r':
     return fetchComic(
       `https://xkcd.com/${rand(1, store.get('latest'))()}/info.0.json`
     )
-  }
 
-  case '-o': {
+  case '-o':
     return store.set('title', program.options[0]).set('alt', program.options[1])
-  }
 
-  case '-d': {
+  case '-d':
     return console.log(store.path)
-  }
 
-  default: {
+  default:
     console.log('For available commands/options, reference `xk -h`')
-  }
+    process.exit(1)
 }
