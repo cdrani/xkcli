@@ -27,12 +27,14 @@ Commands:
   d,                          display filepath to data storage location
 ```
 
-## `xk o [options] <chalkOptions>`
 
-This subcommand allows for the stylistic manipulation of the title and alt text. 
-These texts can be stylized using the available [**chalk**](https://github.com/chalk/chalk#styles) options.
 
-__Examples__:
+## Comic
+
+These subcommands allows for the fetching and displaying the comics. 
+
+
+__Examples:__
 
 * current, next, previous, and random subcommands have similar invocations:
 
@@ -48,6 +50,15 @@ __Examples__:
   ```bash
   xk s 123
   ```
+
+
+
+## Style
+
+This subcommand allows for the stylistic manipulation of the title and alt text. These texts can be stylized using the available [**chalk**](https://github.com/chalk/chalk#styles) options.
+
+
+__Examples:__
 
 * style the title text (text above image) with __title__ option (`-t` or `--title`)
 
