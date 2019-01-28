@@ -48,7 +48,7 @@ const displayComic = ({ num, title, alt, img }, latest) => {
   })
 }
 
-program.version('0.3.2', '-v, --version')
+program.version('1.0.0', '-v, --version')
 
 program
   .command('c')
