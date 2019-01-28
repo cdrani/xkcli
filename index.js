@@ -18,13 +18,17 @@ const setOptions = (opts = `bold.greenBright`, type, text) =>
 const fetchComic = async url => {
   const response = await fetch(url)
   const data = await response.json()
-  const { num, alt, img, title } = data
-  store.set('current', num)
+  const latest = updateStore(data)
+  displayComic(data, latest)
+}
 
+const updateStore = ({ titile, alt, img, num }) => {
+  store.set('current', num)
   let latest = store.get('latest') || store.get('current')
 
   if (program.current) {
     store.set('latest', num)
+    latest = store.get('latest')
   }
 
   const isLatest = num === store.get('latest')
@@ -33,8 +37,12 @@ const fetchComic = async url => {
     .set('previous', num <= 1 ? 1 : num - 1)
     .set('next', isLatest ? num : num + 1)
 
-  setOptions(store.get('title'), 'title', `${title} [${num}/${latest}]`)
+  return latest
+}
+
+const displayComic = ({ num, title, alt, img }, latest) => {
   imgcat(img).then(image => {
+    setOptions(store.get('title'), 'title', `${title} [${num}/${latest}]`)
     console.log(image)
     setOptions(store.get('alt'), 'alt', alt)
   })
@@ -80,7 +88,7 @@ program
 program
   .command('o <options>')
   .description(
-    'configure chalk options to change color of output text (ref chalk package)'
+    'configure chalk options to change color of output text (ref. chalk package)'
   )
   .action(chalkOpts => {
     const [titleStyle, altStyle] = chalkOpts.split(',')
