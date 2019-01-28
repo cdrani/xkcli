@@ -12,7 +12,7 @@ const SUFFIX = 'info.0.json'
 
 const setOptions = (opts = `bold.greenBright`, type, text) =>
   store.get(type)
-    ? console.log(chalk`{${opts} ${text}}`)
+    ? console.log(chalk`{${store.get(type)} ${text}}`)
     : console.log(chalk.bold.greenBright(text))
 
 const fetchComic = async url => {
@@ -86,20 +86,29 @@ program
   )
 
 program
-  .command('o <options>')
+  .command('o <chalkOptions>')
+  .option('-a, --alt', 'change appearance of alt text')
+  .option('-t, --title', 'change appearance of title text')
+  .option('-b, --both', 'change appearance of both texts')
   .description(
     'configure chalk options to change color of output text (ref. chalk package)'
   )
-  .action(chalkOpts => {
-    const [titleStyle, altStyle] = chalkOpts.split(',')
-    return store.set('title', titleStyle).set('alt', altStyle)
+  .action((chalkOpts, cmd) => {
+    if (cmd.alt) store.set('alt', chalkOpts)
+    else if (cmd.title) store.set('title', chalkOpts)
+    else {
+      const [titleStyle, altStyle] = chalkOpts.split(',')
+      store.set('title', titleStyle).set('alt', altStyle)
+    }
   })
 
 program
   .command('d')
   .description('display filepath to data storage location')
-  .action(() => console.log(store.path))
+  .action(cmd => console.log(store.path))
+
+program.command('*').action(() => {
+  program.help()
+})
 
 program.parse(process.argv)
-
-if (!program.args.length) program.help()
