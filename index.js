@@ -23,10 +23,10 @@ const fetchComic = async url => {
 }
 
 const updateStore = num => {
-  if (process.argv[2] == 'c') store.set('latest', num)
+  if (process.argv[2] === 'c') store.set('latest', num)
 
   const latest = store.get('latest')
-  const isLatest = num === store.get('latest')
+  const isLatest = num === latest
 
   store
     .set('previous', num === 1 ? 1 : num - 1)
@@ -42,7 +42,7 @@ const displayComic = ({ num, title, alt, img }, latest) =>
     setOptions(store.get('alt'), 'alt', alt)
   })
 
-program.version('1.0.0', '-v, --version')
+program.version('1.0.1', '-v, --version')
 
 program
   .command('c')
