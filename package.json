@@ -26,9 +26,9 @@
   "devDependencies": {
     "prettier": "1.16.1"
   },
-  "repository": "git+https://github.com/cdrainxv/xkcli.git",
-  "bugs": "https://github.com/cdrainxv/xkcli/issues",
-  "homepage": "https://github.com/cdrainxv/xkcli#readme",
-  "author": "cdrainxv (https://github.com/cdrainxv)",
+  "repository": "git+https://github.com/cdrani/xkcli.git",
+  "bugs": "https://github.com/cdrani/xkcli/issues",
+  "homepage": "https://github.com/cdrani/xkcli#readme",
+  "author": "cdrani (https://github.com/cdrani)",
   "license": "MIT"
 }
