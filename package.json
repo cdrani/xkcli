@@ -15,6 +15,7 @@
     "cli",
     "node"
   ],
+  "files": ["index.js"],
   "dependencies": {
     "chalk": "2.3.0",
     "commander": "2.11.0",
