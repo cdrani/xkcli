@@ -99,7 +99,7 @@ program
 program
   .command('d')
   .description('display filepath to data storage location')
-  .action(cmd => console.log(store.path))
+  .action(() => console.log(store.path))
 
 if (!process.argv[2]) program.help()
 
