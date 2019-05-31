@@ -42,7 +42,7 @@ const displayComic = ({ num, title, alt, img }, latest) =>
     setOptions(store.get('alt'), 'alt', alt)
   })
 
-program.version('1.0.1', '-v, --version')
+program.version('1.0.2', '-v, --version')
 
 program
   .command('c')
