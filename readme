@@ -6,7 +6,7 @@ Simple terminal based xkcd comic viewer. CLI will display the title, alt text, a
 
 ## Usage
 
-Installation: `npm install xkcli --global` or `yarn global add xkcli`
+Installation: `npm i -g xkcli` or `yarn global add xkcli`
 
 NOTE: The first command run should be `xk c`. This command not only fetches the latest comic, but saves the comic number as well. Other options, such as `xk s <value>` and `xk r` are reliant on the latest comic number (see descriptions below).
 
