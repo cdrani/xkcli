@@ -1,7 +1,5 @@
 # xkcli
 
-## Basics:
-
 Simple terminal based xkcd comic viewer. CLI will display the title, alt text, and image of a comic.
 
 ## Usage
