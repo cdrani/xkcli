@@ -23,7 +23,7 @@
     "commander": "2.11.0",
     "data-store": "1.0.0",
     "imgcat": "2.3.0",
-    "node-fetch": "2.6.1",
+    "node-fetch": "3.1.1",
     "unique-random": "1.0.0"
   },
   "devDependencies": {
